@@ -1,0 +1,58 @@
+
+robot -d Results --r reporttitle "My Cool Report" --logtitle "My Cool Log" Tests
+
+--critical  (-c)  ->  allows you to specify which tags will cause the test report to be red
+--noncritical (-n)  ->   allows you to specify which tags will not cause the test report to be red
+robot -d Results --critical tags Tests
+--timestampoutputs (-T) -> prevents result/log overwriting. Preseve multiple results
+
+
+//// Force Script Execution Order ////
+Script file normally execute in alpha order
+Can specific files with XX_ to change that
+01_Some_Feature.robot
+02_Another_Feature.robot
+
+///// Randomizing Script Execution Order ////
+Can use the --randomize command flag
+tests
+suites
+all
+none
+
+robot -d Results --randomize suites Tests
+robot -d Results --randomize tests Tests
+robot -d Results --randomize all Tests
+
+
+//// Get More Detailed Logs //////
+Logs have a default log level
+This can be changed several ways
+    Command Line
+        --loglevel (-L) debug
+    In the Script
+        Set Log Level Debug
+
+robot -d Results -i smoke -L debug Tests
+
+//// Automatic Variables ////
+
+//// Return Values from Keywords ////
+Pass information from an executing keyword back to the keyword that called it
+${ReturnedInfo} = A keyword That Returns
+[Returns] something you want to return
+
+
+//// Create a Custom Library
+Robot frame work does so much
+If you need something specific
+    - Use Python or Java
+    - Create a module file (.py)
+    - Add methods Underscores for spaces
+    - Declare the Library at the top of script
+    - Call the method as a keyword
+
+
+
+ /// Update to Consider ////
+
